@@ -6,7 +6,9 @@
 - Appium http://appium.io
 - Python (+some libs) https://www.python.org/
 - Android Emulator or Genymotion https://www.genymotion.com/
+
 ### Setup Python
+
 Make sure you have python installed. (Pre-installed on Macs and Ubuntu)
 Check Python version is atleast 2.7
 ```sh
