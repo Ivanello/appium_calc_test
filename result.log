@@ -1,0 +1,278 @@
+ivanello@t430u:~/project/appium_calc_test$ python calc.py >> result.log
+test_1_arguments_check_0_positive (__main__.TestCalc) ... ok
+test_1_arguments_check_1_negative (__main__.TestCalc) ... FAIL
+test_1_arguments_check_2_fraction (__main__.TestCalc) ... FAIL
+test_1_arguments_check_3_long_number (__main__.TestCalc) ... ok
+test_1a_arguments_negativ_0_chars (__main__.TestCalc) ... ok
+test_1a_arguments_negativ_1_symbol (__main__.TestCalc) ... FAIL
+test_2_sub_operations_0_num_num_sub (__main__.TestCalc) ... ok
+test_2_sub_operations_1_nul_num_sub (__main__.TestCalc) ... ERROR
+test_2_sub_operations_2_num_nul_sub (__main__.TestCalc) ... ERROR
+test_2_sub_operations_3_nul_nul_sub (__main__.TestCalc) ... ERROR
+test_3_div_operations_0_num_num_div (__main__.TestCalc) ... ok
+test_3_div_operations_1_nul_num_div (__main__.TestCalc) ... ERROR
+test_3_div_operations_2_num_nul_div (__main__.TestCalc) ... ERROR
+test_3_div_operations_3_nul_nul_div (__main__.TestCalc) ... ERROR
+test_3_div_operations_4_num_0_div (__main__.TestCalc) ... ERROR
+test_4_subtraction_0_positive_result (__main__.TestCalc) ... ok
+test_4_subtraction_1_negative_result (__main__.TestCalc) ... ok
+test_4_subtraction_2_fraction_result (__main__.TestCalc) ... FAIL
+test_4_subtraction_3_subtract_nill (__main__.TestCalc) ... ok
+test_4_subtraction_4_subtract_from_nill (__main__.TestCalc) ... ok
+test_4_subtraction_5_sub_from_negativ_number (__main__.TestCalc) ... FAIL
+test_4_subtraction_6_subtract_negative_number (__main__.TestCalc) ... FAIL
+test_5_division_0_positive (__main__.TestCalc) ... ok
+test_5_division_1_2_digits (__main__.TestCalc) ... ok
+test_5_division_2_3_digits (__main__.TestCalc) ... ok
+test_5_division_3_fraction_result (__main__.TestCalc) ... FAIL
+test_5_division_4_fraction_argument1 (__main__.TestCalc) ... FAIL
+test_5_division_5_negative_argument1 (__main__.TestCalc) ... FAIL
+test_5_division_6_20_dig_numbers (__main__.TestCalc) ... ERROR
+
+======================================================================
+ERROR: test_2_sub_operations_1_nul_num_sub (__main__.TestCalc)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/nose_parameterized/parameterized.py", line 365, in standalone_func
+    return func(*(a + p.args), **p.kwargs)
+  File "calc.py", line 74, in test_2_sub_operations
+    assert_equal(self.res.get_attribute('text'), result)
+  File "/usr/local/lib/python2.7/dist-packages/selenium/webdriver/remote/webelement.py", line 111, in get_attribute
+    resp = self._execute(Command.GET_ELEMENT_ATTRIBUTE, {'name': name})
+  File "/usr/local/lib/python2.7/dist-packages/selenium/webdriver/remote/webelement.py", line 461, in _execute
+    return self._parent.execute(command, params)
+  File "/usr/local/lib/python2.7/dist-packages/selenium/webdriver/remote/webdriver.py", line 236, in execute
+    self.error_handler.check_response(response)
+  File "/usr/local/lib/python2.7/dist-packages/appium/webdriver/errorhandler.py", line 29, in check_response
+    raise wde
+NoSuchElementException: Message: An element could not be located on the page using the given search parameters.
+
+
+======================================================================
+ERROR: test_2_sub_operations_2_num_nul_sub (__main__.TestCalc)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/nose_parameterized/parameterized.py", line 365, in standalone_func
+    return func(*(a + p.args), **p.kwargs)
+  File "calc.py", line 74, in test_2_sub_operations
+    assert_equal(self.res.get_attribute('text'), result)
+  File "/usr/local/lib/python2.7/dist-packages/selenium/webdriver/remote/webelement.py", line 111, in get_attribute
+    resp = self._execute(Command.GET_ELEMENT_ATTRIBUTE, {'name': name})
+  File "/usr/local/lib/python2.7/dist-packages/selenium/webdriver/remote/webelement.py", line 461, in _execute
+    return self._parent.execute(command, params)
+  File "/usr/local/lib/python2.7/dist-packages/selenium/webdriver/remote/webdriver.py", line 236, in execute
+    self.error_handler.check_response(response)
+  File "/usr/local/lib/python2.7/dist-packages/appium/webdriver/errorhandler.py", line 29, in check_response
+    raise wde
+NoSuchElementException: Message: An element could not be located on the page using the given search parameters.
+
+
+======================================================================
+ERROR: test_2_sub_operations_3_nul_nul_sub (__main__.TestCalc)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/nose_parameterized/parameterized.py", line 365, in standalone_func
+    return func(*(a + p.args), **p.kwargs)
+  File "calc.py", line 74, in test_2_sub_operations
+    assert_equal(self.res.get_attribute('text'), result)
+  File "/usr/local/lib/python2.7/dist-packages/selenium/webdriver/remote/webelement.py", line 111, in get_attribute
+    resp = self._execute(Command.GET_ELEMENT_ATTRIBUTE, {'name': name})
+  File "/usr/local/lib/python2.7/dist-packages/selenium/webdriver/remote/webelement.py", line 461, in _execute
+    return self._parent.execute(command, params)
+  File "/usr/local/lib/python2.7/dist-packages/selenium/webdriver/remote/webdriver.py", line 236, in execute
+    self.error_handler.check_response(response)
+  File "/usr/local/lib/python2.7/dist-packages/appium/webdriver/errorhandler.py", line 29, in check_response
+    raise wde
+NoSuchElementException: Message: An element could not be located on the page using the given search parameters.
+
+
+======================================================================
+ERROR: test_3_div_operations_1_nul_num_div (__main__.TestCalc)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/nose_parameterized/parameterized.py", line 365, in standalone_func
+    return func(*(a + p.args), **p.kwargs)
+  File "calc.py", line 87, in test_3_div_operations
+    assert_equal(self.res.get_attribute('text'), result)
+  File "/usr/local/lib/python2.7/dist-packages/selenium/webdriver/remote/webelement.py", line 111, in get_attribute
+    resp = self._execute(Command.GET_ELEMENT_ATTRIBUTE, {'name': name})
+  File "/usr/local/lib/python2.7/dist-packages/selenium/webdriver/remote/webelement.py", line 461, in _execute
+    return self._parent.execute(command, params)
+  File "/usr/local/lib/python2.7/dist-packages/selenium/webdriver/remote/webdriver.py", line 236, in execute
+    self.error_handler.check_response(response)
+  File "/usr/local/lib/python2.7/dist-packages/appium/webdriver/errorhandler.py", line 29, in check_response
+    raise wde
+NoSuchElementException: Message: An element could not be located on the page using the given search parameters.
+
+
+======================================================================
+ERROR: test_3_div_operations_2_num_nul_div (__main__.TestCalc)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/nose_parameterized/parameterized.py", line 365, in standalone_func
+    return func(*(a + p.args), **p.kwargs)
+  File "calc.py", line 87, in test_3_div_operations
+    assert_equal(self.res.get_attribute('text'), result)
+  File "/usr/local/lib/python2.7/dist-packages/selenium/webdriver/remote/webelement.py", line 111, in get_attribute
+    resp = self._execute(Command.GET_ELEMENT_ATTRIBUTE, {'name': name})
+  File "/usr/local/lib/python2.7/dist-packages/selenium/webdriver/remote/webelement.py", line 461, in _execute
+    return self._parent.execute(command, params)
+  File "/usr/local/lib/python2.7/dist-packages/selenium/webdriver/remote/webdriver.py", line 236, in execute
+    self.error_handler.check_response(response)
+  File "/usr/local/lib/python2.7/dist-packages/appium/webdriver/errorhandler.py", line 29, in check_response
+    raise wde
+NoSuchElementException: Message: An element could not be located on the page using the given search parameters.
+
+
+======================================================================
+ERROR: test_3_div_operations_3_nul_nul_div (__main__.TestCalc)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/nose_parameterized/parameterized.py", line 365, in standalone_func
+    return func(*(a + p.args), **p.kwargs)
+  File "calc.py", line 87, in test_3_div_operations
+    assert_equal(self.res.get_attribute('text'), result)
+  File "/usr/local/lib/python2.7/dist-packages/selenium/webdriver/remote/webelement.py", line 111, in get_attribute
+    resp = self._execute(Command.GET_ELEMENT_ATTRIBUTE, {'name': name})
+  File "/usr/local/lib/python2.7/dist-packages/selenium/webdriver/remote/webelement.py", line 461, in _execute
+    return self._parent.execute(command, params)
+  File "/usr/local/lib/python2.7/dist-packages/selenium/webdriver/remote/webdriver.py", line 236, in execute
+    self.error_handler.check_response(response)
+  File "/usr/local/lib/python2.7/dist-packages/appium/webdriver/errorhandler.py", line 29, in check_response
+    raise wde
+NoSuchElementException: Message: An element could not be located on the page using the given search parameters.
+
+
+======================================================================
+ERROR: test_3_div_operations_4_num_0_div (__main__.TestCalc)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/nose_parameterized/parameterized.py", line 365, in standalone_func
+    return func(*(a + p.args), **p.kwargs)
+  File "calc.py", line 87, in test_3_div_operations
+    assert_equal(self.res.get_attribute('text'), result)
+  File "/usr/local/lib/python2.7/dist-packages/selenium/webdriver/remote/webelement.py", line 111, in get_attribute
+    resp = self._execute(Command.GET_ELEMENT_ATTRIBUTE, {'name': name})
+  File "/usr/local/lib/python2.7/dist-packages/selenium/webdriver/remote/webelement.py", line 461, in _execute
+    return self._parent.execute(command, params)
+  File "/usr/local/lib/python2.7/dist-packages/selenium/webdriver/remote/webdriver.py", line 236, in execute
+    self.error_handler.check_response(response)
+  File "/usr/local/lib/python2.7/dist-packages/appium/webdriver/errorhandler.py", line 29, in check_response
+    raise wde
+NoSuchElementException: Message: An element could not be located on the page using the given search parameters.
+
+
+======================================================================
+ERROR: test_5_division_6_20_dig_numbers (__main__.TestCalc)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/nose_parameterized/parameterized.py", line 365, in standalone_func
+    return func(*(a + p.args), **p.kwargs)
+  File "calc.py", line 118, in test_5_division
+    assert_equal(self.res.get_attribute('text'), result)
+  File "/usr/local/lib/python2.7/dist-packages/selenium/webdriver/remote/webelement.py", line 111, in get_attribute
+    resp = self._execute(Command.GET_ELEMENT_ATTRIBUTE, {'name': name})
+  File "/usr/local/lib/python2.7/dist-packages/selenium/webdriver/remote/webelement.py", line 461, in _execute
+    return self._parent.execute(command, params)
+  File "/usr/local/lib/python2.7/dist-packages/selenium/webdriver/remote/webdriver.py", line 236, in execute
+    self.error_handler.check_response(response)
+  File "/usr/local/lib/python2.7/dist-packages/appium/webdriver/errorhandler.py", line 29, in check_response
+    raise wde
+NoSuchElementException: Message: An element could not be located on the page using the given search parameters.
+
+
+======================================================================
+FAIL: test_1_arguments_check_1_negative (__main__.TestCalc)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/nose_parameterized/parameterized.py", line 365, in standalone_func
+    return func(*(a + p.args), **p.kwargs)
+  File "calc.py", line 47, in test_1_arguments_check
+    assert_equal(self.arg1.get_attribute('text'), argument1, msg)
+AssertionError: negative
+
+======================================================================
+FAIL: test_1_arguments_check_2_fraction (__main__.TestCalc)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/nose_parameterized/parameterized.py", line 365, in standalone_func
+    return func(*(a + p.args), **p.kwargs)
+  File "calc.py", line 47, in test_1_arguments_check
+    assert_equal(self.arg1.get_attribute('text'), argument1, msg)
+AssertionError: fraction
+
+======================================================================
+FAIL: test_1a_arguments_negativ_1_symbol (__main__.TestCalc)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/nose_parameterized/parameterized.py", line 365, in standalone_func
+    return func(*(a + p.args), **p.kwargs)
+  File "calc.py", line 60, in test_1a_arguments_negativ
+    assert_equal(self.arg1.get_attribute('text'), 'First argument')
+AssertionError: u'3' != 'First argument'
+
+======================================================================
+FAIL: test_4_subtraction_2_fraction_result (__main__.TestCalc)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/nose_parameterized/parameterized.py", line 365, in standalone_func
+    return func(*(a + p.args), **p.kwargs)
+  File "calc.py", line 102, in test_4_subtraction
+    assert_equal(self.res.get_attribute('text'), result)
+AssertionError: u'96' != '6.9'
+
+======================================================================
+FAIL: test_4_subtraction_5_sub_from_negativ_number (__main__.TestCalc)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/nose_parameterized/parameterized.py", line 365, in standalone_func
+    return func(*(a + p.args), **p.kwargs)
+  File "calc.py", line 102, in test_4_subtraction
+    assert_equal(self.res.get_attribute('text'), result)
+AssertionError: u'8' != '-16'
+
+======================================================================
+FAIL: test_4_subtraction_6_subtract_negative_number (__main__.TestCalc)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/nose_parameterized/parameterized.py", line 365, in standalone_func
+    return func(*(a + p.args), **p.kwargs)
+  File "calc.py", line 102, in test_4_subtraction
+    assert_equal(self.res.get_attribute('text'), result)
+AssertionError: u'8' != '16'
+
+======================================================================
+FAIL: test_5_division_3_fraction_result (__main__.TestCalc)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/nose_parameterized/parameterized.py", line 365, in standalone_func
+    return func(*(a + p.args), **p.kwargs)
+  File "calc.py", line 118, in test_5_division
+    assert_equal(self.res.get_attribute('text'), result)
+AssertionError: u'1' != '1.5'
+
+======================================================================
+FAIL: test_5_division_4_fraction_argument1 (__main__.TestCalc)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/nose_parameterized/parameterized.py", line 365, in standalone_func
+    return func(*(a + p.args), **p.kwargs)
+  File "calc.py", line 118, in test_5_division
+    assert_equal(self.res.get_attribute('text'), result)
+AssertionError: u'33' != '3.3'
+
+======================================================================
+FAIL: test_5_division_5_negative_argument1 (__main__.TestCalc)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/nose_parameterized/parameterized.py", line 365, in standalone_func
+    return func(*(a + p.args), **p.kwargs)
+  File "calc.py", line 118, in test_5_division
+    assert_equal(self.res.get_attribute('text'), result)
+AssertionError: u'5' != '-5'
+
+----------------------------------------------------------------------
+Ran 29 tests in 650.506s
+
+FAILED (failures=9, errors=8)
+

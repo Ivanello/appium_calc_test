@@ -148,3 +148,47 @@ $ python calc.py
 or
 $ nosetests -v calc.py
 ```
+
+# Output example
+
+* `ok` - test passed
+* `FAIL` - test assertion error
+* `ERROR` - apk crashed
+
+```
+ivanello@t430u:~/project/appium_calc_test$ python calc.py
+test_1_arguments_check_0_positive (__main__.TestCalc) ... ok
+test_1_arguments_check_1_negative (__main__.TestCalc) ... FAIL
+test_1_arguments_check_2_fraction (__main__.TestCalc) ... FAIL
+test_1_arguments_check_3_long_number (__main__.TestCalc) ... ok
+test_1a_arguments_negativ_0_chars (__main__.TestCalc) ... ok
+test_1a_arguments_negativ_1_symbol (__main__.TestCalc) ... FAIL
+test_2_sub_operations_0_num_num_sub (__main__.TestCalc) ... ok
+test_2_sub_operations_1_nul_num_sub (__main__.TestCalc) ... ERROR
+test_2_sub_operations_2_num_nul_sub (__main__.TestCalc) ... ERROR
+test_2_sub_operations_3_nul_nul_sub (__main__.TestCalc) ... ERROR
+test_3_div_operations_0_num_num_div (__main__.TestCalc) ... ok
+test_3_div_operations_1_nul_num_div (__main__.TestCalc) ... ERROR
+test_3_div_operations_2_num_nul_div (__main__.TestCalc) ... ERROR
+test_3_div_operations_3_nul_nul_div (__main__.TestCalc) ... ERROR
+test_3_div_operations_4_num_0_div (__main__.TestCalc) ... ERROR
+test_4_subtraction_0_positive_result (__main__.TestCalc) ... ok
+test_4_subtraction_1_negative_result (__main__.TestCalc) ... ok
+test_4_subtraction_2_fraction_result (__main__.TestCalc) ... FAIL
+test_4_subtraction_3_subtract_nill (__main__.TestCalc) ... ok
+test_4_subtraction_4_subtract_from_nill (__main__.TestCalc) ... ok
+test_4_subtraction_5_sub_from_negativ_number (__main__.TestCalc) ... FAIL
+test_4_subtraction_6_subtract_negative_number (__main__.TestCalc) ... FAIL
+test_5_division_0_positive (__main__.TestCalc) ... ok
+test_5_division_1_2_digits (__main__.TestCalc) ... ok
+test_5_division_2_3_digits (__main__.TestCalc) ... ok
+test_5_division_3_fraction_result (__main__.TestCalc) ... FAIL
+test_5_division_4_fraction_argument1 (__main__.TestCalc) ... FAIL
+test_5_division_5_negative_argument1 (__main__.TestCalc) ... FAIL
+test_5_division_6_20_dig_numbers (__main__.TestCalc) ... ERROR
+
+======================================================================
+Ran 29 tests in 650.506s
+
+FAILED (failures=9, errors=8)
+```

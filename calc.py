@@ -1,16 +1,15 @@
+# -*- coding: utf-8 -*-
 import os
 from time import sleep
 import unittest
 from appium import webdriver
 
-from nose.tools import assert_equal
+from nose.tools import assert_equal, assert_not_equal
 from nose_parameterized import parameterized
 
 PATH = lambda p: os.path.abspath(
     os.path.join(os.path.dirname(__file__), p)
 )
-
-
 
 class TestCalc(unittest.TestCase):
 
@@ -23,6 +22,7 @@ class TestCalc(unittest.TestCase):
         desired_caps['app'] = PATH('calc.apk')
 
         self.driver = webdriver.Remote('http://127.0.0.1:4723/wd/hub', desired_caps)
+
         self.arg1 = self.driver.find_element_by_android_uiautomator('new UiSelector().descriptionContains("arg1")')
         self.arg2 = self.driver.find_element_by_android_uiautomator('new UiSelector().descriptionContains("arg2")')
         self.add = self.driver.find_element_by_android_uiautomator('new UiSelector().descriptionContains("addition")')
@@ -30,24 +30,36 @@ class TestCalc(unittest.TestCase):
         self.div = self.driver.find_element_by_android_uiautomator('new UiSelector().descriptionContains("division")')
         self.mul = self.driver.find_element_by_android_uiautomator('new UiSelector().descriptionContains("multiplication")')
         self.res = self.driver.find_element_by_android_uiautomator('new UiSelector().descriptionContains("result")')
-
-
+    #
     @parameterized.expand([
         ('positive', '1', '2'),
         ('negative', '-3', '-4'),
         ('fraction', '5.6', '7.8'),
         ('long number', '11111111111111111111', '11111111111111111111'),
     ])
-    def test_1_arguments_check(self, _, argument1, argument2):
+    def test_1_arguments_check(self, msg, argument1, argument2):
         assert_equal(self.arg1.get_attribute('text'), 'First argument')
         assert_equal(self.arg2.get_attribute('text'), 'Second argument')
 
         self.arg1.send_keys(argument1)
         self.arg2.send_keys(argument2)
+        sleep(2)
+        assert_equal(self.arg1.get_attribute('text'), argument1, msg)
+        assert_equal(self.arg2.get_attribute('text'), argument2, msg)
+        assert_equal(self.res.get_attribute('text'), 'Result', msg)\
 
-        assert_equal(self.arg1.get_attribute('text'), argument1)
-        assert_equal(self.arg2.get_attribute('text'), argument2)
-        assert_equal(self.res.get_attribute('text'), 'Result')
+    @parameterized.expand([
+        ('chars', 'a', 'B'),
+        ('symbol', '#', '$'),
+        # ('symbol cyr', 'Ж', 'й'),
+    ])
+    def test_1a_arguments_negativ(self, msg, argument1, argument2):
+        self.arg1.send_keys(argument1)
+        self.arg2.send_keys(argument2)
+        # sleep(2)
+        assert_equal(self.arg1.get_attribute('text'), 'First argument')
+        assert_equal(self.arg2.get_attribute('text'), 'Second argument')
+
 
     @parameterized.expand([
         ('num num sub', '1', '1', 'sub', '0'),
@@ -83,7 +95,7 @@ class TestCalc(unittest.TestCase):
         ('sub from negativ number', -12, 4, '-16'),
         ('subtract negative number', 12, -4, '16'),
     ])
-    def test_2_subtraction(self, _, argument1, argument2, result):
+    def test_4_subtraction(self, _, argument1, argument2, result):
         self.arg1.send_keys(argument1)
         self.arg2.send_keys(argument2)
         self.sub.click()
@@ -98,14 +110,24 @@ class TestCalc(unittest.TestCase):
         ('negative argument1', -10, 2, '-5'),
         ('20 dig numbers', '11111111111111111111', 1, '11111111111111111111'),
     ])
-    def test_4_division(self, _, argument1, argument2, result):
+    def test_5_division(self, _, argument1, argument2, result):
         self.arg1.send_keys(argument1)
         self.arg2.send_keys(argument2)
         self.div.click()
 
         assert_equal(self.res.get_attribute('text'), result)
 
+    # @parameterized.expand([
+    #     ('land to portrait arg1', 'LANDSCAPE', 'arg1', '2', 'PORTRAIT'),
+    # ])
+    # def test_6_rotation(self, _, orient1, arg, argument_value, orient2):
+    #     self.driver.orientation = orient1
+    #     self.arg.send_keys(argument_value)
+    #     self.driver.orientation = orient2
+    #     assert_equal(argument_num.get_attribute('text'), argument_value)
+
     def tearDown(self):
+        self.driver.orientation = 'PORTRAIT'
         self.driver.quit()
 
 if __name__ == '__main__':
