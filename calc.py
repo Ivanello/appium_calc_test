@@ -22,6 +22,7 @@ class TestCalc(unittest.TestCase):
         desired_caps['app'] = PATH('calc.apk')
 
         self.driver = webdriver.Remote('http://127.0.0.1:4723/wd/hub', desired_caps)
+        self.driver.orientation = 'PORTRAIT'
 
         self.arg1 = self.driver.find_element_by_android_uiautomator('new UiSelector().descriptionContains("arg1")')
         self.arg2 = self.driver.find_element_by_android_uiautomator('new UiSelector().descriptionContains("arg2")')
@@ -30,7 +31,7 @@ class TestCalc(unittest.TestCase):
         self.div = self.driver.find_element_by_android_uiautomator('new UiSelector().descriptionContains("division")')
         self.mul = self.driver.find_element_by_android_uiautomator('new UiSelector().descriptionContains("multiplication")')
         self.res = self.driver.find_element_by_android_uiautomator('new UiSelector().descriptionContains("result")')
-    #
+
     @parameterized.expand([
         ('positive', '1', '2'),
         ('negative', '-3', '-4'),
@@ -46,13 +47,13 @@ class TestCalc(unittest.TestCase):
         sleep(2)
         assert_equal(self.arg1.get_attribute('text'), argument1, msg)
         assert_equal(self.arg2.get_attribute('text'), argument2, msg)
-        assert_equal(self.res.get_attribute('text'), 'Result', msg)\
-
-    @parameterized.expand([
-        ('chars', 'a', 'B'),
-        ('symbol', '#', '$'),
-        # ('symbol cyr', 'Ж', 'й'),
-    ])
+        assert_equal(self.res.get_attribute('text'), 'Result', msg) \
+ \
+        @parameterized.expand([
+            ('chars', 'a', 'B'),
+            ('symbol', '#', '$'),
+            # ('symbol cyr', 'Ж', 'й'),
+        ])
     def test_1a_arguments_negativ(self, msg, argument1, argument2):
         self.arg1.send_keys(argument1)
         self.arg2.send_keys(argument2)
@@ -117,17 +118,26 @@ class TestCalc(unittest.TestCase):
 
         assert_equal(self.res.get_attribute('text'), result)
 
-    # @parameterized.expand([
-    #     ('land to portrait arg1', 'LANDSCAPE', 'arg1', '2', 'PORTRAIT'),
-    # ])
-    # def test_6_rotation(self, _, orient1, arg, argument_value, orient2):
-    #     self.driver.orientation = orient1
-    #     self.arg.send_keys(argument_value)
-    #     self.driver.orientation = orient2
-    #     assert_equal(argument_num.get_attribute('text'), argument_value)
+    def test_6_rotation(self):
+        self.driver.orientation = 'PORTRAIT'
+        self.arg1.send_keys(1)
+        self.arg2.send_keys(2)
+        self.add.click()
+        self.driver.orientation = 'LANDSCAPE'
+        sleep(2)
+        assert_equal(self.arg1.get_attribute('text'), '1')
+        assert_equal(self.arg2.get_attribute('text'), '2')
+        assert_equal(self.res.get_attribute('text'), '3')
+        self.arg1.send_keys(1)
+        self.arg2.send_keys(2)
+        self.add.click()
+        self.driver.orientation = 'LANDSCAPE'
+        sleep(2)
+        assert_equal(self.arg1.get_attribute('text'), '1')
+        assert_equal(self.arg2.get_attribute('text'), '2')
+        assert_equal(self.res.get_attribute('text'), '3')
 
     def tearDown(self):
-        self.driver.orientation = 'PORTRAIT'
         self.driver.quit()
 
 if __name__ == '__main__':

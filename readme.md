@@ -186,9 +186,10 @@ test_5_division_3_fraction_result (__main__.TestCalc) ... FAIL
 test_5_division_4_fraction_argument1 (__main__.TestCalc) ... FAIL
 test_5_division_5_negative_argument1 (__main__.TestCalc) ... FAIL
 test_5_division_6_20_dig_numbers (__main__.TestCalc) ... ERROR
+test_6_rotation (__main__.TestCalc) ... FAIL
 
 ======================================================================
-Ran 29 tests in 650.506s
+Ran 30 tests in 650.506s
 
-FAILED (failures=9, errors=8)
+FAILED (failures=10, errors=8)
 ```
