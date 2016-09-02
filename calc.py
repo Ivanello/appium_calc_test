@@ -118,6 +118,7 @@ class TestCalc(unittest.TestCase):
 
         assert_equal(self.res.get_attribute('text'), result)
 
+
     def test_6_rotation(self):
         self.driver.orientation = 'PORTRAIT'
         self.arg1.send_keys(1)
